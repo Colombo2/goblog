@@ -1,0 +1,30 @@
+{{ define "index" }}
+<!DOCTYPE html>
+<html>
+{{ template "head" }}
+<body>
+    <div class="login-dark">
+        <form method="post" action="/admin/do_login">
+            <h2 class="sr-only">Login Form</h2>
+            <button class="ill" id="buton" type="button"><i class="material-symbols-outlined" style="font-size:40px;text-align:center;">skull</i></button><br>
+            <div class="form-group"><input class="form-control" type="username" name="usern" placeholder="Kullanıcı Adı"></div>
+            <div class="form-group"><input class="form-control" type="password" name="passw" placeholder="Şifre"></div>
+            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Giriş Yap</button></div>
+        </form>
+    </div>
+    {{ template "scripts" }}
+    {{ template "alert" .Alert }}
+    <script>
+        document.getElementById("buton").addEventListener("mouseover", function() {
+            document.getElementById("buton").style.backgroundColor = "#cf5f15";
+        });
+        document.getElementById("buton").addEventListener("mouseout", function() {
+            document.getElementById("buton").style.backgroundColor = "#111111";
+        });
+        document.getElementById("buton").onclick = function () {
+            location.href = "/admin";
+        };
+    </script>
+</body>
+</html>
+{{ end }}
